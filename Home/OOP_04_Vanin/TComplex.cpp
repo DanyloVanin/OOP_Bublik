@@ -44,17 +44,17 @@ double TComplex::im() const {
 }
 
 TComplex& operator+=(TComplex& a, const TComplex& b) {
-	AComplex aAlg(a);
-	AComplex bAlg(b);
-	aAlg += bAlg;
-	a = static_cast<TComplex>(aAlg);
-	return a;
+	//AComplex aAlg(a);
+	//AComplex bAlg(b);
+	//aAlg += bAlg;
+	//a = static_cast<TComplex>(aAlg);
+	return a+=AComplex(b);
 }
 TComplex& operator-=(TComplex& a, const TComplex& b) {
-	AComplex aAlg(a);
-	AComplex bAlg(b);
-	aAlg -= bAlg;
-	a = static_cast<TComplex>(aAlg);
+	//AComplex aAlg(a);
+	//AComplex bAlg(b);
+	//aAlg -= bAlg;
+	//a = static_cast<TComplex>(aAlg);
 	return a;
 }
 TComplex& operator*=(TComplex& a, const TComplex& b) {

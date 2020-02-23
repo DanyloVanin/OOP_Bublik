@@ -48,8 +48,9 @@ double AComplex::arg() const {
 	return atan(_im / _re);
 	return acos(_re / mod());
 	*/
-	//return asin(_im / mod());
-	return atan2(_im, _re);
+	return asin(_im / mod());
+	// need to use atan2 bcs it works in every quarter  - !important
+	//return atan2(_im, _re);
 }
 
 const AComplex AComplex::conj() const {
@@ -72,11 +73,12 @@ AComplex& operator*=(AComplex& a, const AComplex& b) {
 	aTrig *= bTrig;
 	a = aTrig;
 	return a;*/
-	double re = a.re() * b.re() - a.im() * b.im();
+	/*double re = a.re() * b.re() - a.im() * b.im();
 	double im = a.re() * b.im() + b.re() * a.im();
 	a.re() = re;
 	a.im() = im;
-	return a;
+	return a;*/
+	//return a *= b;
 }
 AComplex& operator/=(AComplex& a, const AComplex& b) {
 	/*TComplex aTrig(a);
@@ -84,13 +86,14 @@ AComplex& operator/=(AComplex& a, const AComplex& b) {
 	aTrig /= bTrig;
 	a = aTrig;
 	return a;*/
-	double re = a.re() * b.re() + a.im() * b.im();
+	/*double re = a.re() * b.re() + a.im() * b.im();
 	re /= b.re() * b.re() + b.im() * b.im();
 	double im = b.re() * a.im() - a.re() * b.im();
 	im /= b.re() * b.re() + b.im() * b.im();
 	a.re() = re;
 	a.im() = im;
-	return a;
+	return a;*/
+	return a /= b;
 }
 
 const AComplex operator+ (const AComplex& a, const AComplex& b) {
